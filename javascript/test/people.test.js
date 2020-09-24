@@ -47,4 +47,22 @@ describe('Testing People', () => {
         assert.equal(People.filterAnimals('e')(person).animals.length, 6)
         assert.equal(People.filterAnimals('Duck')(person).animals.length, 2)
     })
+
+    it('Test addAnimalsCount without animals', () => {
+        const person = People.createPerson('Elmer Kinoshita')
+        const personWithCount = People.addAnimalsCount(person)
+
+        assert.equal(personWithCount.name, 'Elmer Kinoshita [0]')
+    })
+
+    it('Test addAnimalsCount with animals', () => {
+        const person = People.createPerson('Ernest Conte', [
+            { name: 'Snakes' },
+            { name: 'Starling' },
+            { name: 'Pronghorn' }
+        ])
+        const personWithCount = People.addAnimalsCount(person)
+
+        assert.equal(personWithCount.name, 'Ernest Conte [3]')
+    })
 })

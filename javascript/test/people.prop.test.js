@@ -13,4 +13,14 @@ describe('Testing People properties', () => {
             }
         ))
     })
+
+    it('Person with animals count should have a longer name', () => {
+        fc.assert(fc.property(
+            personArbitrary(),
+            person => {
+                const personWithAnimalsCount = People.addAnimalsCount(person)
+                return personWithAnimalsCount.name > person.name
+            }
+        ))
+    })
 })

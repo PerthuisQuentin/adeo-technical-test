@@ -13,7 +13,25 @@ const filterPeopleAnimals = filter => country => ({
     people: country.people.map(people => People.filterAnimals(filter)(people))
 })
 
+// Add the people quantity at the end of the name
+const addPeopleCount = country => ({
+    ...country,
+    name: `${country.name} [${country.people.length}]`
+})
+
+// Add the animals quantity at the end of the name for each people
+const addPeopleAnimalsCount = country => ({
+    ...country,
+    people: country.people.map(people => People.addAnimalsCount(people))
+})
+
+// Add quantity at the end of the name for each children
+const addChildrenCount = country => addPeopleCount(addPeopleAnimalsCount(country))
+
 module.exports = {
     createCountry,
-    filterPeopleAnimals
+    filterPeopleAnimals,
+    addPeopleCount,
+    addPeopleAnimalsCount,
+    addChildrenCount
 }
