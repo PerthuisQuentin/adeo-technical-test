@@ -1,16 +1,15 @@
 const assert = require('assert')
 
-const { People, Animals } = require('../lib')
+const { People } = require('../lib')
 
 describe('Testing People', () => {
     it('Test createPerson', () => {
-        const name = 'something'
-        const animals = [
-            Animals.createAnimal('Narwhal'),
-            Animals.createAnimal('Badger'),
-            Animals.createAnimal('Cobra')
-        ]
-        const person = People.createPerson(name, animals)
+        const name = 'Winifred Graham'
+        const person = People.createPerson(name, [
+            { name: 'Narwhal' },
+            { name: 'Badger' },
+            { name: 'Cobra' }
+        ])
 
         assert.equal(person.hasOwnProperty('name'), true)
         assert.equal(person.name, name)
@@ -31,16 +30,16 @@ describe('Testing People', () => {
 
     it('Test filterAnimals with various filters', () => {
         const person = People.createPerson('Alexander Fleury', [
-            Animals.createAnimal('Gelada'),
-            Animals.createAnimal('Rattlesnake'),
-            Animals.createAnimal('Rabbit'),
-            Animals.createAnimal('Gazelle'),
-            Animals.createAnimal('Duck'),
-            Animals.createAnimal('Rhinoceros'),
-            Animals.createAnimal('Bat'),
-            Animals.createAnimal('Duck'),
-            Animals.createAnimal('Caterpillar'),
-            Animals.createAnimal('Tortoise')
+            { name: 'Gelada' },
+            { name: 'Rattlesnake' },
+            { name: 'Rabbit' },
+            { name: 'Gazelle' },
+            { name: 'Duck' },
+            { name: 'Rhinoceros' },
+            { name: 'Bat' },
+            { name: 'Duck' },
+            { name: 'Caterpillar' },
+            { name: 'Tortoise' }
         ])
 
         assert.equal(People.filterAnimals('')(person).animals.length, 10)

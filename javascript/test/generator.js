@@ -1,5 +1,5 @@
 const fc = require('fast-check')
-const { Animals, People } = require('../lib')
+const { Animals, People, Countries } = require('../lib')
 
 const animalArbitrary = () =>
     fc
@@ -10,7 +10,15 @@ const personArbitrary = () =>
     fc
         .tuple(fc.string(), fc.array(animalArbitrary()))
         .map(([name, animals]) => People.createPerson(name, animals))
+
+const countryArbitrary = () =>
+    fc
+        .tuple(fc.string(), fc.array(personArbitrary()))
+        .map(([name, people]) => Countries.createCountry(name, people))
+
+
 module.exports = {
     animalArbitrary,
     personArbitrary,
+    countryArbitrary,
 }

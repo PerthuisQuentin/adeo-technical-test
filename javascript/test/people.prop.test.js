@@ -1,4 +1,3 @@
-const assert = require('assert')
 const fc = require('fast-check')
 
 const { People } = require('../lib')
