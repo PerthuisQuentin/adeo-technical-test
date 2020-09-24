@@ -11,7 +11,7 @@ describe('Testing Animals', () => {
         assert.equal(animal.name, name)
     })
 
-    it('Test createAnimal without name', () => {
+    it('Test createAnimal without parameters', () => {
         const animal = Animals.createAnimal()
 
         assert.equal(animal.hasOwnProperty('name'), true)

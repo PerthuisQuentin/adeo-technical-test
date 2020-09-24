@@ -2,7 +2,6 @@ const assert = require('assert')
 const fc = require('fast-check')
 
 const { Animals } = require('../lib')
-const animals = require('../lib/animals')
 const { animalArbitrary } = require('./generator')
 
 describe('Testing Animals properties', () => {
