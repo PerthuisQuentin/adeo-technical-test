@@ -1,0 +1,18 @@
+{
+  "name": "adeo-technical-test",
+  "version": "1.0.0",
+  "description": "Technical test for Adeo",
+  "license": "GNU GPLv3",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PerthuisQuentin/adeo-technical-test.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "fast-check": "^2.3.0",
+    "mocha": "^8.1.3"
+  }
+}
