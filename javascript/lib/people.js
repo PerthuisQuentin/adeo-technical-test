@@ -6,6 +6,7 @@ const createPerson = (name = '', animals = []) => ({
     toString: () => `${name} ${animals}`,
 })
 
+// Filter person's animals by name
 const filterAnimals = filter => person => ({
     ...person,
     animals: person.animals.filter(Animals.nameContains(filter))
